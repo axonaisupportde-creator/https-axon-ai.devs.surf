@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Axon AI Support</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">A</div>
+
+            <div>
+                <div class="brand-name">AXON</div>
+                <div class="brand-subtitle">AI SUPPORT</div>
+            </div>
+        </div>
+
+        <button id="newChatButton" class="new-chat">
+            <span>＋</span>
+            Neuer Chat
+        </button>
+
+        <div class="sidebar-title">
+            SYSTEM
+        </div>
+
+        <div class="sidebar-item active">
+            <span>◈</span>
+            Axon AI
+        </div>
+
+        <div class="sidebar-item" id="memoryButton">
+            <span>🧠</span>
+            Memory
+        </div>
+
+        <div class="sidebar-item" id="knowledgeButton">
+            <span>▣</span>
+            Knowledge Base
+        </div>
+
+        <div class="sidebar-spacer"></div>
+
+        <div class="status-card">
+
+            <div class="status-dot"></div>
+
+            <div>
+                <div class="status-title">
+                    Axon Online
+                </div>
+
+                <div class="status-text">
+                    KI-System aktiv
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sidebar-footer">
+            AXON AI SUPPORT<br>
+            PRIVATE AI SYSTEM
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <div class="mobile-logo">
+                    A
+                </div>
+
+                <div>
+                    <div class="top-title">
+                        Axon AI
+                    </div>
+
+                    <div class="top-status">
+                        <span class="online-dot"></span>
+                        Online
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="topbar-actions">
+
+                <button
+                    id="clearMemoryButton"
+                    class="header-button"
+                    title="Memory löschen"
+                >
+                    🧠
+                </button>
+
+                <button
+                    id="newChatTop"
+                    class="header-button"
+                    title="Neuer Chat"
+                >
+                    ＋
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- CHAT -->
+        <section id="chat" class="chat">
+
+            <!-- WELCOME -->
+            <div id="welcome" class="welcome">
+
+                <div class="welcome-logo">
+                    A
+                </div>
+
+                <h1>
+                    Wie kann ich dir helfen?
+                </h1>
+
+                <p>
+                    Ich bin <strong>Axon</strong>, die KI von
+                    Axon AI Support.
+                </p>
+
+                <div class="suggestions">
+
+                    <button class="suggestion">
+                        Erklär mir, was du kannst
+                    </button>
+
+                    <button class="suggestion">
+                        Wie funktioniert dein Memory?
+                    </button>
+
+                    <button class="suggestion">
+                        Was weißt du über Axon?
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INPUT -->
+        <div class="input-area">
+
+            <div class="input-box">
+
+                <textarea
+                    id="messageInput"
+                    placeholder="Nachricht an Axon..."
+                    rows="1"
+                ></textarea>
+
+                <button
+                    id="sendButton"
+                    class="send-button"
+                    title="Nachricht senden"
+                >
+                    ➤
+                </button>
+
+            </div>
+
+            <div class="input-info">
+                Axon kann Fehler machen. Überprüfe wichtige Informationen.
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- MEMORY MODAL -->
+<div id="memoryModal" class="modal hidden">
+
+    <div class="modal-background"></div>
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <div>
+                <div class="modal-title">
+                    🧠 Axon Memory
+                </div>
+
+                <div class="modal-subtitle">
+                    Gespeicherte Informationen
+                </div>
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeMemory"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div id="memoryList" class="memory-list">
+
+            <div class="loading">
+                Memory wird geladen...
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                id="deleteMemory"
+                class="danger-button"
+            >
+                Memory löschen
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- KNOWLEDGE MODAL -->
+<div id="knowledgeModal" class="modal hidden">
+
+    <div class="modal-background"></div>
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <div>
+                <div class="modal-title">
+                    ▣ Knowledge Base
+                </div>
+
+                <div class="modal-subtitle">
+                    Axons internes Wissen
+                </div>
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeKnowledge"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div class="knowledge-content">
+
+            <div class="knowledge-icon">
+                ◈
+            </div>
+
+            <h2>
+                Axon Knowledge Base
+            </h2>
+
+            <p>
+                Axon verwendet eine eigene Wissensbasis,
+                die auf dem Server gespeichert wird.
+            </p>
+
+            <div class="knowledge-status">
+                ● Knowledge Base verbunden
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
